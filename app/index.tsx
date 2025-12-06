@@ -1,9 +1,9 @@
-import { Link, router } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container} >
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.container}>
       ...
 
       <Link href="/flexbox/ex01" style={styles.link}>
@@ -42,17 +42,21 @@ export default function Index() {
       <Link href="/flexbox/ex12" style={styles.link}>
         <Text style={styles.linkText}>Ex12</Text>
       </Link>
-      
       <Link href="/resort" style={styles.link}>
         <Text style={styles.linkText}>Resort</Text>
       </Link>
+      <Link href="/health" style={styles.link}>
+      <Text style={styles.linkText}>Health</Text>
+</Link>
 
-    </View>
+
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center", },
+  scrollView: { flex: 1 },
+  container: { flexGrow: 1, justifyContent: "center", alignItems: "center", paddingVertical: 20 },
   link: { margin: 10, padding: 10, backgroundColor: "#2196F3", borderRadius: 5, },
   linkText: { color: "#fff", fontSize: 16, textAlign: "center", },
 });
