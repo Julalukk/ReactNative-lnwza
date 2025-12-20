@@ -3,9 +3,11 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Index() {
   return (
-    <ScrollView style={styles.scrollView} contentContainerStyle={styles.container}>
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={styles.container}
+    >
       ...
-
       <Link href="/flexbox/ex01" style={styles.link}>
         <Text style={styles.linkText}>Ex01</Text>
       </Link>
@@ -46,24 +48,40 @@ export default function Index() {
         <Text style={styles.linkText}>Resort</Text>
       </Link>
       <Link href="/health" style={styles.link}>
-      <Text style={styles.linkText}>Health</Text>
+        <Text style={styles.linkText}>Health</Text>
       </Link>
-    <Link href="/travel" style={styles.link}>
-      <Text style={styles.linkText}>Travel</Text>
-    </Link>
-    <Link href="/home" style={styles.link}>
-  <Text style={styles.linkText}>Home</Text>
-</Link>
-
-
-
+      <Link href="/travel" style={styles.link}>
+        <Text style={styles.linkText}>Travel</Text>
+      </Link>
+      <Link href="/home" style={styles.link}>
+        <Text style={styles.linkText}>Home</Text>
+      </Link>
+      <Link href="/chart" style={styles.link}>
+        <Text style={styles.linkText}>Chart</Text>
+      </Link>
+      <Link href="/your-health" style={styles.link}>
+        <Text style={styles.linkText}>Your Health</Text>
+      </Link>
+      <Link href="/todolist" style={styles.link}>
+        <Text style={styles.linkText}>Todo List</Text>
+      </Link>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: { flex: 1 },
-  container: { flexGrow: 1, justifyContent: "center", alignItems: "center", paddingVertical: 20 },
-  link: { margin: 10, padding: 10, backgroundColor: "#2196F3", borderRadius: 5, },
-  linkText: { color: "#fff", fontSize: 16, textAlign: "center", },
+  container: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 20,
+  },
+  link: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: "#2196F3",
+    borderRadius: 5,
+  },
+  linkText: { color: "#fff", fontSize: 16, textAlign: "center" },
 });
