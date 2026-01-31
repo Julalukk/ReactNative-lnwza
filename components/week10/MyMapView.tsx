@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 import MapView from "react-native-maps";
-import UniversityMarkers from "./UniversityMarkers";
-import { postData } from "@/utils/api";
+import PeopleMarkers from "./peopleMarkers";
+import { getData, postData } from "@/utils/api";
 
 export default function MyMapView(props: any) {
     const width = Dimensions.get("screen").width;
     const height = Dimensions.get("screen").height;
 
-
-    const [universities, setUniversities] = useState([]);
-    const loadUniversities = async () => {
-        let url_endpoint = "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week10/universities.json";
+    // พิกัดของคนจาก API แทนมหาวิทยาลัยในปทุมธานี
+    const [people, setPeople] = useState<any[]>([]);
+    const loadPeople = async () => {
         try {
-            let response = await fetch(url_endpoint);
-            let items = await response.json();
-            //   console.log(items);
-            setUniversities(items);
+            let items = await getData("/location");
+            setPeople(items);
         } catch (error) {
             console.log(error);
         }
     };
-    useEffect(() => { loadUniversities(); }, []);
+    useEffect(() => { loadPeople(); }, []);
 
     if (props.location) {
         //DISPLAY MAP ON YOUR LOCATION
@@ -58,11 +55,23 @@ export default function MyMapView(props: any) {
                     }
                 }}
             >
-                <UniversityMarkers items={universities} />
+                <PeopleMarkers items={people} />
             </MapView>
         );
     } else {
-        //DISPLAY DEFAULT MAP on 0,0
-        return <MapView style={{ width: width, height: height }}></MapView>;
+        // แสดงแผนที่ศูนย์กลางประเทศไทย พร้อมหมุดคนจาก API
+        return (
+            <MapView
+                style={{ width: width, height: height }}
+                initialRegion={{
+                    latitude: 14.07,
+                    longitude: 100.60,
+                    latitudeDelta: 0.5,
+                    longitudeDelta: 0.5,
+                }}
+            >
+                <PeopleMarkers items={people} />
+            </MapView>
+        );
     }
 }

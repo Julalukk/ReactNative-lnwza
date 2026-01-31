@@ -2,9 +2,9 @@ import React from "react";
 import MapView, { Marker } from "react-native-maps";
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function peopleMarkers(props:any) {
-
-  return props.items.map((item:any) => (
+export default function PeopleMarkers(props: any) {
+  if (!props.items || props.items.length === 0) return null;
+  return props.items.map((item: any) => (
     <Marker
       coordinate={{
         "latitude": Number(item.latitude),

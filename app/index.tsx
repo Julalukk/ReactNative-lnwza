@@ -7,7 +7,6 @@ export default function Index() {
       style={styles.scrollView}
       contentContainerStyle={styles.container}
     >
-      ...
       <Link href="/flexbox/ex01" style={styles.link}>
         <Text style={styles.linkText}>Ex01</Text>
       </Link>
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
   scrollView: { flex: 1 },
   container: {
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     paddingVertical: 20,
   },
