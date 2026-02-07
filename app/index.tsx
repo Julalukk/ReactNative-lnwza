@@ -69,10 +69,17 @@ export default function Index() {
       </Link>
       <Link href="/ant" style={styles.link}>
         <Text style={styles.linkText}>heros</Text>
-</Link>
-<Link href="/Pikachu" style={styles.link}>
+      </Link>
+      <Link href="/Pikachu" style={styles.link}>
         <Text style={styles.linkText}>Pokemon</Text>
-</Link>
+      </Link>
+      <Link href="/book" style={styles.link}>
+        <Text style={styles.linkText}>Book</Text>
+      </Link>
+      <Link href="/book-online" style={styles.link}>
+        <Text style={styles.linkText}>Book Online</Text>
+      </Link>
+
     </ScrollView>
   );
 }
